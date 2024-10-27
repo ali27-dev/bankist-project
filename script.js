@@ -80,6 +80,20 @@ const displayMovements = function (movements) {
 };
 
 displayMovements(account1.movements);
+
+const creatName = function (accounts) {
+  const userName = user
+    .toLowerCase()
+    .split(' ')
+    .map(name => name[0])
+    .join('');
+  return userName;
+};
+
+// const user = 'Ahmad Ali'; //aa
+
+console.log(creatName('Ahmad Ali'));
+
 ///////////////////////////////////////
 // Coding Challenge #1
 
@@ -227,7 +241,7 @@ const currenciesUnique = new Set(['USD', 'USD', 'URE', 'PKR', 'AED', 'PKR']);
 currenciesUnique.forEach(function (value, key, map) {
   console.log(`${key}: ${value}`);
 });
-*/
+
 
 ////////////////////////////
 ////MAP////
@@ -249,3 +263,4 @@ const movementDescription = movements.map(
     )}`
 );
 console.log(movementDescription);
+*/
