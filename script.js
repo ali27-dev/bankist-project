@@ -27,7 +27,7 @@ const account3 = {
 };
 
 const account4 = {
-  owner: 'Abid ALi',
+  owner: 'Abid Khan',
   movements: [430, 1000, 700, 50, 90],
   interestRate: 1,
   pin: 4444,
@@ -81,18 +81,18 @@ const displayMovements = function (movements) {
 
 displayMovements(account1.movements);
 
-const creatName = function (accounts) {
-  const userName = user
-    .toLowerCase()
-    .split(' ')
-    .map(name => name[0])
-    .join('');
-  return userName;
+const creatName = function (accs) {
+  accs.forEach(function (acc) {
+    acc.userName = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(name => name[0])
+      .join('');
+  });
 };
 
-// const user = 'Ahmad Ali'; //aa
-
-console.log(creatName('Ahmad Ali'));
+creatName(accounts);
+console.log(accounts);
 
 ///////////////////////////////////////
 // Coding Challenge #1
