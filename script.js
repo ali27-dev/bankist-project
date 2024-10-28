@@ -81,6 +81,12 @@ const displayMovements = function (movements) {
 
 displayMovements(account1.movements);
 
+const calcDisplayBalance = function (movements) {
+  const balance = movements.reduce((acc, curr, i, arr) => acc + curr);
+  labelBalance.textContent = `${balance} EUR`;
+};
+calcDisplayBalance(account1.movements);
+
 const creatName = function (accs) {
   accs.forEach(function (acc) {
     acc.userName = acc.owner
@@ -92,8 +98,13 @@ const creatName = function (accs) {
 };
 
 creatName(accounts);
-console.log(accounts);
+// console.log(accounts);
 
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+// LECTURES
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 ///////////////////////////////////////
 // Coding Challenge #1
 
@@ -277,7 +288,7 @@ const deposite = movements.filter(function (mov) {
 });
 
 console.log(deposite);
-*/
+
 ////////////////////////////
 ////REDUCE/////
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
@@ -286,3 +297,10 @@ const balance = movements.reduce(function (acc, cur, i, arr) {
   return acc + cur;
 });
 console.log(balance);
+*/
+
+const max = movements.reduce((acc, mov, i, arr) => {
+  if (acc > mov) return acc;
+  else return mov;
+}, movements[0]);
+console.log(max);
