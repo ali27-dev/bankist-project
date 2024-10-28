@@ -264,3 +264,14 @@ const movementDescription = movements.map(
 );
 console.log(movementDescription);
 */
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+const withdrewl = [];
+for (const element of movements) if (element < 0) withdrewl.push(element);
+console.log(withdrewl);
+
+const deposite = movements.filter(function (mov) {
+  return mov < 0;
+});
+
+console.log(deposite);
