@@ -263,7 +263,9 @@ const movementDescription = movements.map(
     )}`
 );
 console.log(movementDescription);
-*/
+
+///////////////////////////////
+//////FILLTER/////
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 const withdrewl = [];
@@ -275,3 +277,12 @@ const deposite = movements.filter(function (mov) {
 });
 
 console.log(deposite);
+*/
+////////////////////////////
+////REDUCE/////
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+const balance = movements.reduce(function (acc, cur, i, arr) {
+  return acc + cur;
+});
+console.log(balance);
