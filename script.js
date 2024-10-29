@@ -92,18 +92,18 @@ const calcDisplaySummary = function (movements) {
     .filter(mov => mov > 0)
     .reduce((acc, mov) => acc + mov);
   labelSumIn.textContent = `${income}€`;
-  console.log(income);
+  // console.log(income);
   const outcome = movements
     .filter(mov => mov < 0)
     .reduce((acc, mov) => acc + mov);
   labelSumOut.textContent = `${Math.abs(outcome)}€`;
-  console.log(outcome);
+  // console.log(outcome);
 
   const interest = movements
     .filter(mov => mov > 0)
     .map(deposite => (deposite * 1.2) / 100)
     .filter((int, i, arr) => {
-      console.log(arr);
+      // console.log(arr);
       return int >= 1;
     })
     .reduce((acc, int) => acc + int, 0);
@@ -346,7 +346,7 @@ TEST DATA 1: [5, 2, 4, 1, 15, 8, 3]
 TEST DATA 2: [16, 6, 10, 5, 6, 1, 4]
 
 GOOD LUCK 😀
-
+*/
 
 const calcAverageHumanAge = function (dogAges) {
   const ages = dogAges.map(mov => (mov <= 2 ? 2 * mov : 16 + mov * 4));
@@ -363,20 +363,24 @@ const calcAverageHumanAge = function (dogAges) {
 calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
 calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
 
-// const result = calcAverageHumanAge(dogAges);
+const calcAverageHumanAge2 = ages =>
+  ages
+    .map(mov => (mov <= 2 ? 2 * mov : 16 + mov * 4))
+    .filter(mov => mov >= 18)
+    .reduce((acc, mov, i, arr) => acc + mov / arr.length, 0);
 
-// console.log(result);
+const avg1 = calcAverageHumanAge2([5, 2, 4, 1, 15, 8, 3]);
+const avg2 = calcAverageHumanAge2([16, 6, 10, 5, 6, 1, 4]);
+console.log(avg1, avg2);
 
+// const eurToUsd = 1.1;
+// console.log(movements);
 
-const eurToUsd = 1.1;
-console.log(movements);
+// const totalDeposite = movements
+//   .filter(mov => mov > 0)
+//   .map((mov, i, arr) => {
+//     return mov * eurToUsd;
+//   })
+//   .reduce((acc, mov) => acc + mov, 0);
 
-const totalDeposite = movements
-  .filter(mov => mov > 0)
-  .map((mov, i, arr) => {
-    return mov * eurToUsd;
-  })
-  .reduce((acc, mov) => acc + mov, 0);
-
-console.log(totalDeposite);
-*/
+// console.log(totalDeposite);
