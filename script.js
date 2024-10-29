@@ -322,7 +322,7 @@ TEST DATA 1: [5, 2, 4, 1, 15, 8, 3]
 TEST DATA 2: [16, 6, 10, 5, 6, 1, 4]
 
 GOOD LUCK 😀
-*/
+
 
 const calcAverageHumanAge = function (dogAges) {
   const ages = dogAges.map(mov => (mov <= 2 ? 2 * mov : 16 + mov * 4));
@@ -342,3 +342,16 @@ calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
 // const result = calcAverageHumanAge(dogAges);
 
 // console.log(result);
+*/
+
+const eurToUsd = 1.1;
+console.log(movements);
+
+const totalDeposite = movements
+  .filter(mov => mov > 0)
+  .map((mov, i, arr) => {
+    return mov * eurToUsd;
+  })
+  .reduce((acc, mov) => acc + mov, 0);
+
+console.log(totalDeposite);
