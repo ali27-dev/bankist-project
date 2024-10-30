@@ -124,6 +124,22 @@ const creatName = function (accs) {
 creatName(accounts);
 // console.log(accounts);
 
+///////////////////////////////////////
+// Event handlers
+let currentAccount;
+
+btnLogin.addEventListener('click', function (e) {
+  e.preventDefault();
+  // console.log('LOG in');
+  currentAccount = accounts.find(
+    acc => acc.userName === inputLoginUsername.value
+  );
+  console.log(currentAccount);
+
+  if (currentAccount?.pin === Number(inputLoginPin.value)) {
+  }
+});
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -348,30 +364,30 @@ TEST DATA 2: [16, 6, 10, 5, 6, 1, 4]
 GOOD LUCK 😀
 */
 
-const calcAverageHumanAge = function (dogAges) {
-  const ages = dogAges.map(mov => (mov <= 2 ? 2 * mov : 16 + mov * 4));
+// const calcAverageHumanAge = function (dogAges) {
+//   const ages = dogAges.map(mov => (mov <= 2 ? 2 * mov : 16 + mov * 4));
 
-  const adult = ages.filter(age => age >= 18);
+//   const adult = ages.filter(age => age >= 18);
 
-  const average = adult.reduce((acc, sum) => acc + sum, 0) / adult.length;
+//   const average = adult.reduce((acc, sum) => acc + sum, 0) / adult.length;
 
-  console.log(ages);
-  console.log(adult);
-  console.log(average);
-  return average;
-};
-calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
-calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
+//   console.log(ages);
+//   console.log(adult);
+//   console.log(average);
+//   return average;
+// };
+// calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
+// calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
 
-const calcAverageHumanAge2 = ages =>
-  ages
-    .map(mov => (mov <= 2 ? 2 * mov : 16 + mov * 4))
-    .filter(mov => mov >= 18)
-    .reduce((acc, mov, i, arr) => acc + mov / arr.length, 0);
+// const calcAverageHumanAge2 = ages =>
+//   ages
+//     .map(mov => (mov <= 2 ? 2 * mov : 16 + mov * 4))
+//     .filter(mov => mov >= 18)
+//     .reduce((acc, mov, i, arr) => acc + mov / arr.length, 0);
 
-const avg1 = calcAverageHumanAge2([5, 2, 4, 1, 15, 8, 3]);
-const avg2 = calcAverageHumanAge2([16, 6, 10, 5, 6, 1, 4]);
-console.log(avg1, avg2);
+// const avg1 = calcAverageHumanAge2([5, 2, 4, 1, 15, 8, 3]);
+// const avg2 = calcAverageHumanAge2([16, 6, 10, 5, 6, 1, 4]);
+// console.log(avg1, avg2);
 
 // const eurToUsd = 1.1;
 // console.log(movements);
@@ -384,3 +400,8 @@ console.log(avg1, avg2);
 //   .reduce((acc, mov) => acc + mov, 0);
 
 // console.log(totalDeposite);
+
+// THE Find method\
+
+// const firstWithdrawel = movements.find(mov => mov < 0);
+// console.log(firstWithdrawel);
