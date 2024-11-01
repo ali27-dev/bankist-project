@@ -441,46 +441,66 @@ TEST DATA 1: [5, 2, 4, 1, 15, 8, 3]
 TEST DATA 2: [16, 6, 10, 5, 6, 1, 4]
 
 GOOD LUCK 😀
+
+
+const calcAverageHumanAge = function (dogAges) {
+  const ages = dogAges.map(mov => (mov <= 2 ? 2 * mov : 16 + mov * 4));
+
+  const adult = ages.filter(age => age >= 18);
+
+  const average = adult.reduce((acc, sum) => acc + sum, 0) / adult.length;
+
+  console.log(ages);
+  console.log(adult);
+  console.log(average);
+  return average;
+};
+calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
+calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
+
+const calcAverageHumanAge2 = ages =>
+  ages
+    .map(mov => (mov <= 2 ? 2 * mov : 16 + mov * 4))
+    .filter(mov => mov >= 18)
+    .reduce((acc, mov, i, arr) => acc + mov / arr.length, 0);
+
+const avg1 = calcAverageHumanAge2([5, 2, 4, 1, 15, 8, 3]);
+const avg2 = calcAverageHumanAge2([16, 6, 10, 5, 6, 1, 4]);
+console.log(avg1, avg2);
+
+const eurToUsd = 1.1;
+console.log(movements);
+
+const totalDeposite = movements
+  .filter(mov => mov > 0)
+  .map((mov, i, arr) => {
+    return mov * eurToUsd;
+  })
+  .reduce((acc, mov) => acc + mov, 0);
+
+console.log(totalDeposite);
+
+THE Find method\
+
+const firstWithdrawel = movements.find(mov => mov < 0);
+console.log(firstWithdrawel);
+
+
+
+
+//////////////////////
+///Flat and FlatMap///
+
+const arr = [1, 3, 4, 54, 5, 6, 7, 7, 87, 8];
+console.log(arr.flat());
+
+const accMovements = accounts;
+console.log(accMovements);
+
+const newMovements = accMovements
+  .map(acc => acc.movements)
+  .flat()
+  .reduce((acu, acc) => acu + acc, 0);
+
+console.log(newMovements);
 */
-
-// const calcAverageHumanAge = function (dogAges) {
-//   const ages = dogAges.map(mov => (mov <= 2 ? 2 * mov : 16 + mov * 4));
-
-//   const adult = ages.filter(age => age >= 18);
-
-//   const average = adult.reduce((acc, sum) => acc + sum, 0) / adult.length;
-
-//   console.log(ages);
-//   console.log(adult);
-//   console.log(average);
-//   return average;
-// };
-// calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
-// calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
-
-// const calcAverageHumanAge2 = ages =>
-//   ages
-//     .map(mov => (mov <= 2 ? 2 * mov : 16 + mov * 4))
-//     .filter(mov => mov >= 18)
-//     .reduce((acc, mov, i, arr) => acc + mov / arr.length, 0);
-
-// const avg1 = calcAverageHumanAge2([5, 2, 4, 1, 15, 8, 3]);
-// const avg2 = calcAverageHumanAge2([16, 6, 10, 5, 6, 1, 4]);
-// console.log(avg1, avg2);
-
-// const eurToUsd = 1.1;
-// console.log(movements);
-
-// const totalDeposite = movements
-//   .filter(mov => mov > 0)
-//   .map((mov, i, arr) => {
-//     return mov * eurToUsd;
-//   })
-//   .reduce((acc, mov) => acc + mov, 0);
-
-// console.log(totalDeposite);
-
-// THE Find method\
-
-// const firstWithdrawel = movements.find(mov => mov < 0);
-// console.log(firstWithdrawel);
