@@ -651,6 +651,22 @@ labelBalance.addEventListener('click', function () {
 
 ///////////////////////////////////////
 // Array Methods Practice
+//1
+const bankDepositSum = accounts
+  .flatMap(acc => acc.movements)
+  .filter(mov => mov > 0)
+  .reduce((accu, curr) => accu + curr, 0);
+console.log(bankDepositSum);
+//2
+// const numDeposite = accounts
+//   .flatMap(acc => acc.movements)
+//   .filter(mov => mov >= 1000).length;
+// console.log(numDeposite);
+
+const numDeposit = accounts
+  .flatMap(acc => acc.movements)
+  .reduce((count, cur) => (cur >= 1000 ? ++count : count), 0);
+console.log(numDeposit);
 
 ///////////////////////////////////////
 // Coding Challenge #4
