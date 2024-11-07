@@ -570,3 +570,13 @@ console.log(shallowCopy);
 // Base 10 - 0 to 9. 1/10 - 0.1 3/10 = 3.33333333
 // Binary base 2-0 1
 console.log(0.1 === 0.1);
+console.log(0.1 + 0.2 === 0.3);
+
+// conversion
+console.log(Number('23'));
+console.log(Number(23));
+console.log(+'23');
+
+// parsing
+console.log(Number.parseInt('30px', 10));
+console.log(Number.parseInt('es30', 10));
