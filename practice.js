@@ -562,11 +562,12 @@ const shallowCopy = dogs
   .slice()
   .sort((a, b) => a.recommendedFood - b.recommendedFood);
 console.log(shallowCopy);
-*/
+
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // SECTION:12 LECTURES
+
 // Base 10 - 0 to 9. 1/10 - 0.1 3/10 = 3.33333333
 // Binary base 2-0 1
 console.log(0.1 === 0.1);
@@ -580,3 +581,72 @@ console.log(+'23');
 // parsing
 console.log(Number.parseInt('30px', 10));
 console.log(Number.parseInt('es30', 10));
+// parsingFloat
+console.log(Number.parseFloat('47.2'));
+
+console.log('/////////------/////');
+// NaN
+console.log(Number.isNaN(20));
+console.log(Number.isNaN('20'));
+console.log(Number.isNaN(+'20px'));
+console.log('/////----///');
+
+// number finite
+console.log(Number.isFinite(20));
+console.log(Number.isFinite('20'));
+console.log(Number.isFinite(+'20px'));
+console.log('/////----///');
+// number integer
+console.log(Number.isInteger(23));
+console.log(Number.isInteger('20'));
+console.log(Number.isInteger(23.45));
+console.log(Number.isInteger(23));
+*/
+//////////////////
+//MATH an RANDOM
+
+//saqure root
+console.log(Math.sqrt(25));
+console.log(25 ** (1 / 2));
+console.log(8 ** (1 / 3));
+
+// max and min
+console.log(Math.max(1, 3, 4, 56, 6, 6, 7, 7));
+console.log(Math.max(1, 3, 4, '56', 6, 6, 7, 7));
+console.log(Math.max(1, 3, 4, '56px', 6, 6, 7, 7));
+// /min
+console.log(Math.min(1, 3, 4, 56, 6, 6, 7, 7));
+
+// PI
+console.log(Math.PI * Number.parseFloat('10px') ** 2);
+// math.trunc and math.random
+console.log(Math.trunc(Math.random() * 6) + 1);
+
+// max and min  function
+const randomList = (min, max) =>
+  Math.trunc(Math.random() * (max - min) + 1) + min;
+console.log(randomList(10, 20));
+console.log('//////----/////');
+
+// Roundig integers
+console.log(Math.round(23.45345));
+console.log(Math.round(23.9));
+console.log('///////-----///');
+
+console.log(Math.ceil(23.45345));
+console.log(Math.ceil(23.9));
+console.log('///////-----///');
+
+console.log(Math.floor(23.45345));
+console.log(Math.floor('23.9'));
+console.log('///////-----///');
+
+console.log(Math.floor(-23.45345));
+console.log(Math.trunc(-23.9));
+
+console.log('///////-----///');
+// Rounding decimal
+console.log((2.7).toFixed(0));
+console.log((2.7).toFixed(3));
+console.log((2.345).toFixed(2));
+console.log(+(2.7).toFixed(2));
