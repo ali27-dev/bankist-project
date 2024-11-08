@@ -751,4 +751,13 @@ console.log(future.toISOString());
 console.log(future.getTime());
 
 console.log(new Date(2142238980000));
+
+////////////////////////////////
+////operation with dates//
+
+const feature = new Date(2037, 10, 19, 15, 23);
+console.log(+feature);
+
+const days1 = calcDates(new Date(2037, 3, 14), new Date(2037, 3, 24));
+console.log(days1);
 */
