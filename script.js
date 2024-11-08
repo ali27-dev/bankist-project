@@ -44,8 +44,8 @@ const account2 = {
   currency: 'USD',
   locale: 'en-US',
 };
-
-const account3 = {
+/*
+ const account3 = {
   owner: 'Hamid Ali',
   movements: [200, -200, 340, -300, -20, 50, 400, -460],
   interestRate: 0.7,
@@ -58,8 +58,8 @@ const account4 = {
   interestRate: 1,
   pin: 4444,
 };
-
-const accounts = [account1, account2, account3, account4];
+*/
+const accounts = [account1, account2];
 
 // Elements
 const labelWelcome = document.querySelector('.welcome');
@@ -87,10 +87,19 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
-const displayMovements = function (movements, sort = false) {
+const displayMovements = function (acc, sort = false) {
   containerMovements.innerHTML = '';
 
-  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
+  const movs = sort
+    ? acc.movements.slice().sort((a, b) => a - b)
+    : acc.movements;
+
+  const date = new Date();
+  const day = `${date.getDate()}`.padStart(2, 0);
+  const month = `${date.getMonth() + 1}`.padStart(2, 0);
+  const year = `${date.getFullYear()}`;
+
+  const displayDate = `${day}/${month}/${year}`;
 
   movs.forEach(function (mov, i) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
@@ -100,6 +109,7 @@ const displayMovements = function (movements, sort = false) {
           <div class="movements__type movements__type--${type}">${
       i + 1
     } ${type}</div>
+    <div class="movements__date">${displayDate}</div>
         
           <div class="movements__value">${mov.toFixed(2)}€</div>
         </div>`;
@@ -153,7 +163,7 @@ creatName(accounts);
 
 const UpdateUI = function (acc) {
   // Dispaly movements
-  displayMovements(acc.movements);
+  displayMovements(acc);
   // Display balance
   calcDisplayBalance(acc);
   // Display Summary
@@ -163,6 +173,10 @@ const UpdateUI = function (acc) {
 ///////////////////////////////////////
 // Event handlers
 let currentAccount;
+// FAKE ALWAYS LOGGED IN
+currentAccount = account1;
+UpdateUI(currentAccount);
+containerApp.style.opacity = 100;
 
 btnLogin.addEventListener('click', function (e) {
   e.preventDefault();
@@ -178,6 +192,14 @@ btnLogin.addEventListener('click', function (e) {
       currentAccount.owner.split(' ')[0]
     }`;
     containerApp.style.opacity = 100; //css opacity
+    //Creating Dates
+    const now = new Date();
+    const day = `${now.getDate()}`.padStart(2, 0);
+    const month = `${now.getMonth() + 1}`.padStart(2, 0);
+    const year = now.getFullYear();
+    const hour = `${now.getHours()}`.padStart(2, 0);
+    const minute = `${now.getMinutes()}`.padStart(2, 0);
+    labelDate.textContent = `${day}/${month}/${year}, ${hour}:${minute}`;
 
     // Clear input fileds
     inputLoginUsername.value = inputLoginPin.value = '';
@@ -206,6 +228,9 @@ btnTransfer.addEventListener('click', function (e) {
     //Doing the transfer
     currentAccount.movements.push(-amount);
     receiveAcc.movements.push(amount);
+    // Add transfer date
+    currentAccount.movementsDates.push(new Date().toISOString());
+    receiveAcc.movementsDates.push(new Date().toISOString());
 
     // Clear input fileds
     inputTransferTo.value = inputTransferAmount.value = '';
@@ -223,6 +248,8 @@ btnLoan.addEventListener('click', function (e) {
   if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
     // Add Amount
     currentAccount.movements.push(amount);
+    // Add Loen Date
+    currentAccount.movementsDates.push(new Date().toISOString());
     //Display UI
     UpdateUI(currentAccount);
   }
@@ -257,3 +284,5 @@ btnSort.addEventListener('click', function (e) {
 });
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+console.log(account1);
