@@ -720,4 +720,35 @@ console.log(huge + 'is REAllY big!!!');
 // Divisions
 console.log(11n / 3n);
 console.log(10 / 3);
+
+
+///////////////////////////
+////Creating Dates
+
+const now = new Date();
+console.log(now);
+
+console.log(new Date('Aug 02 2020'));
+console.log(new Date(2037, 10, 19, 23, 5));
+console.log(new Date(2045, 10, 31));
+
+console.log(new Date(0));
+console.log(new Date(3 * 24 * 60 * 60 * 1000));
+
+
+// working with dates
+const future = new Date(2037, 10, 19, 15, 23);
+console.log(future);
+
+console.log(future.getFullYear());
+console.log(future.getMonth());
+console.log(future.getDate());
+console.log(future.getDay());
+console.log(future.getHours());
+console.log(future.getMinutes());
+console.log(future.getSeconds());
+console.log(future.toISOString());
+console.log(future.getTime());
+
+console.log(new Date(2142238980000));
 */
