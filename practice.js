@@ -761,3 +761,20 @@ console.log(+feature);
 const days1 = calcDates(new Date(2037, 3, 14), new Date(2037, 3, 24));
 console.log(days1);
 */
+////////////////////////////
+////Internationalizing dates(IntL)
+
+////////////////////////////
+////Internationalizing NUMBER(IntL)
+const num = 3884756.3423;
+
+const options = {
+  style: 'unit',
+  unit: 'percent',
+  // currency: 'EUR',
+};
+console.log('US', new Intl.NumberFormat('en-US', options).format(num));
+console.log('Arbic', new Intl.NumberFormat('ar-AE', options).format(num));
+console.log('England', new Intl.NumberFormat('en-GB', options).format(num));
+console.log('German', new Intl.NumberFormat('de-DE', options).format(num));
+console.log(navigator.language, new Intl.NumberFormat('en-GB').format(num));
