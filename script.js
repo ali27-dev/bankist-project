@@ -18,8 +18,8 @@ const account1 = {
     '2020-04-01T10:17:24.185Z',
     '2020-05-08T14:11:59.604Z',
     '2020-07-26T17:01:17.194Z',
-    '2020-07-28T23:36:17.929Z',
-    '2020-08-01T10:51:36.790Z',
+    '2024-07-28T23:36:17.929Z',
+    '2024-08-01T10:51:36.790Z',
   ],
   currency: 'EUR',
   locale: 'en-US', // de-DE
@@ -319,12 +319,14 @@ btnLoan.addEventListener('click', function (e) {
   const amount = Math.floor(inputLoanAmount.value);
 
   if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
-    // Add Amount
-    currentAccount.movements.push(amount);
-    // Add Loen Date
-    currentAccount.movementsDates.push(new Date().toISOString());
-    //Display UI
-    UpdateUI(currentAccount);
+    setTimeout(function () {
+      // Add Amount
+      currentAccount.movements.push(amount);
+      // Add Loen Date
+      currentAccount.movementsDates.push(new Date().toISOString());
+      //Display UI
+      UpdateUI(currentAccount);
+    }, 2500);
   }
   inputLoanAmount.value = '';
 });

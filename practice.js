@@ -760,7 +760,7 @@ console.log(+feature);
 
 const days1 = calcDates(new Date(2037, 3, 14), new Date(2037, 3, 24));
 console.log(days1);
-*/
+
 ////////////////////////////
 ////Internationalizing dates(IntL)
 
@@ -778,3 +778,24 @@ console.log('Arbic', new Intl.NumberFormat('ar-AE', options).format(num));
 console.log('England', new Intl.NumberFormat('en-GB', options).format(num));
 console.log('German', new Intl.NumberFormat('de-DE', options).format(num));
 console.log(navigator.language, new Intl.NumberFormat('en-GB').format(num));
+*/
+//////////////////////////////////////
+/////Timers: setTimeout and setIntervals
+
+//setTimeout
+const ingredients = ['olives', 'potato'];
+
+const pizzTimer = setTimeout(
+  (ing1, ing2) => console.log(`Here is your pizza with ${ing1} and ${ing2}🍕`),
+  3000,
+  ...ingredients
+);
+console.log('wating.....');
+
+if (ingredients.includes('spinach')) clearTimeout(pizzTimer);
+
+// setIntervals
+setInterval(function () {
+  const now = new Date();
+  console.log(now);
+}, 1000);
