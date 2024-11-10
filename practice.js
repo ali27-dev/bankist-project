@@ -778,7 +778,7 @@ console.log('Arbic', new Intl.NumberFormat('ar-AE', options).format(num));
 console.log('England', new Intl.NumberFormat('en-GB', options).format(num));
 console.log('German', new Intl.NumberFormat('de-DE', options).format(num));
 console.log(navigator.language, new Intl.NumberFormat('en-GB').format(num));
-*/
+
 //////////////////////////////////////
 /////Timers: setTimeout and setIntervals
 
@@ -799,3 +799,4 @@ setInterval(function () {
   const now = new Date();
   console.log(now);
 }, 1000);
+*/
