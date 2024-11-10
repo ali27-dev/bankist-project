@@ -1,6 +1,7 @@
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
+
 /*
 /////////////////////////////////////////////////
 // Simple Array Methods
@@ -140,6 +141,7 @@ const checkDogs = function (dogsJulia, dogsKate) {
 };
 // checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
 checkDogs([9, 16, 6, 8, 3], [10, 5, 6, 1, 4]);
+
 
 
 ///////////////////////////////////////
@@ -365,18 +367,18 @@ console.log(movements);
 // return > 0, B, A (switch order)
 
 // Ascending
-// movements.sort((a, b) => {
-//   if (a > b) return 1;
-//   if (a < b) return -1;
-// });
+ movements.sort((a, b) => {
+   if (a > b) return 1;
+   if (a < b) return -1;
+ });
 movements.sort((a, b) => a - b);
 console.log(movements);
 
 // Descending
-// movements.sort((a, b) => {
-//   if (a > b) return -1;
-//   if (a < b) return 1;
-// });
+movements.sort((a, b) => {
+  if (a > b) return -1;
+  if (a < b) return 1;
+ });
 movements.sort((a, b) => b - a);
 console.log(movements);
 

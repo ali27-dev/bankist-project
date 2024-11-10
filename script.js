@@ -22,7 +22,7 @@ const account1 = {
     '2024-08-01T10:51:36.790Z',
   ],
   currency: 'EUR',
-  locale: 'en-US', // de-DE
+  locale: 'en-US',
 };
 
 const account2 = {
@@ -181,7 +181,6 @@ const calcDisplaySummary = function (acc) {
     .filter(mov => mov > 0)
     .reduce((acc, mov) => acc + mov);
   labelSumIn.textContent = formattedCurr(income, acc.locale, acc.currency);
-  // console.log(income);
 
   const out = acc.movements
     .filter(mov => mov < 0)
@@ -191,13 +190,11 @@ const calcDisplaySummary = function (acc) {
     acc.locale,
     acc.currency
   );
-  // console.log(outcome);
 
   const interest = acc.movements
     .filter(mov => mov > 0)
     .map(deposite => (deposite * acc.interestRate) / 100)
     .filter((int, i, arr) => {
-      // console.log(arr);
       return int >= 1;
     })
     .reduce((acc, int) => acc + int, 0);
@@ -220,7 +217,6 @@ const creatName = function (accs) {
 };
 
 creatName(accounts);
-// console.log(accounts);
 
 const UpdateUI = function (acc) {
   // Dispaly movements
@@ -249,7 +245,7 @@ const startLOgOutTimer = function () {
     time--;
   };
   //Set time to 5 minute
-  let time = 120;
+  let time = 600;
 
   //call the timer every second
   tick();
