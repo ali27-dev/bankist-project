@@ -383,10 +383,28 @@ btnClose.addEventListener('click', function (e) {
 });
 
 let sorted = false;
-btnSort.addEventListener('click', function (e) {
-  e.preventDefault();
-  displayMovements(currentAccount.movements, !sorted);
+btnSort.addEventListener('click', function () {
+  displayMovements(currentAccount, !sorted);
+
+  // if (!sorted) {
+  //   printMovements(currentAccount.movements.slice().sort((a, b) => a - b));
+  // } else {
+  //   printMovements(currentAccount);
+  // }
   sorted = !sorted;
 });
+
+// let sorted = false;
+// btnSort.addEventListener('click', function () {
+//   if (!sorted) {
+//     // We need to create a copy, otherwise the original array will be mutated, and we don't want that
+//     printMovements(currentAccount.movements.slice().sort((a, b) => a - b));
+//     // Here, for example, I'm using slice and not ... because I'm in the middle of a chain here, and so it's more useful to just keep chaining
+//   } else {
+//     printMovements(currentAccount.movements);
+//   }
+//   // We need to flip sorted, so that in the next click, the opposite happens
+//   sorted = !sorted;
+// });
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
